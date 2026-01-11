@@ -75,7 +75,7 @@ export default function App() {
   // Landing page
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
+      <Navigation onTryFree={handleOpenPlatformSelector} />
       
       {/* HERO SECTION */}
       <section className="min-h-screen pt-20 bg-gradient-to-br from-[#F8FAFC] via-white to-[#EFF6FF] relative overflow-hidden">

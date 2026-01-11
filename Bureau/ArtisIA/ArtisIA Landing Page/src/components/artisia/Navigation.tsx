@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Wrench, Sparkles } from 'lucide-react';
 import { Button } from './Button';
 
-export function Navigation() {
+export function Navigation({ onTryFree }: { onTryFree?: () => void }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const menuItems = [
@@ -49,7 +49,7 @@ export function Navigation() {
             
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-4">
-              <Button size="medium">Essayer Gratuitement</Button>
+              <Button size="medium" onClick={onTryFree}>Essayer Gratuitement</Button>
             </div>
             
             {/* Mobile Menu Button */}
@@ -81,7 +81,7 @@ export function Navigation() {
               </button>
             ))}
             <div className="pt-4">
-              <Button size="large" fullWidth>Essayer Gratuitement</Button>
+              <Button size="large" fullWidth onClick={onTryFree}>Essayer Gratuitement</Button>
             </div>
           </div>
         </div>
