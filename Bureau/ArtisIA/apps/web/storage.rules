@@ -1,0 +1,13 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Rules for Company Logos
+    match /companies/{userId}/{allPaths=**} {
+      // Anyone can view the logo (needed for public invoices/PDFs)
+      allow read: if true;
+      // Only the owner can upload/delete their logo
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
